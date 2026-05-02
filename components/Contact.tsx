@@ -12,14 +12,39 @@ const Contact = () => {
     budget: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   const onChange = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => 
     setForm({ ...form, [k]: e.target.value });
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Commission brief received. The studio will respond within 48 hours.");
-    setForm({ name: "", email: "", company: "", budget: "", message: "" });
+    setIsSubmitting(true);
+    setStatus("idle");
+
+    try {
+      // Connects to your external backend (e.g., Render, Railway)
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
+      
+      const response = await fetch(`${backendUrl}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setForm({ name: "", email: "", company: "", budget: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Error submitting brief:", error);
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -132,16 +157,32 @@ const Contact = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="mt-10 group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] px-8 py-4 bg-[#c9a961] text-[#0a0a0a] hover:bg-[#d4b571] transition-all"
-            >
-              SEND BRIEF
-              <ArrowUpRight
-                size={16}
-                className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"
-              />
-            </button>
+            <div className="mt-10 flex items-center gap-6">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] px-8 py-4 bg-[#c9a961] text-[#0a0a0a] hover:bg-[#d4b571] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "TRANSMITTING..." : "SEND BRIEF"}
+                {!isSubmitting && (
+                  <ArrowUpRight
+                    size={16}
+                    className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"
+                  />
+                )}
+              </button>
+              
+              {status === "success" && (
+                <span className="font-mono text-[10px] tracking-widest text-[#c9a961] animate-pulse">
+                  SECURE_TRANSMISSION_COMPLETE
+                </span>
+              )}
+              {status === "error" && (
+                <span className="font-mono text-[10px] tracking-widest text-red-500">
+                  TRANSMISSION_FAILED // RETRY
+                </span>
+              )}
+            </div>
           </form>
         </div>
       </div>
