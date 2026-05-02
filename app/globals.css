@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0a0a0a;
+  color: #f5f5f0;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: 'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas, monospace;
+}
+
+::selection {
+  background: #c9a961;
+  color: #0a0a0a;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a961;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 48 20% 95%;
+    --card: 0 0% 7%;
+    --card-foreground: 48 20% 95%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 48 20% 95%;
+    --primary: 42 40% 60%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 48 20% 95%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 48 8% 55%;
+    --accent: 42 40% 60%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 48 20% 95%;
+    --border: 0 0% 14%;
+    --input: 0 0% 12%;
+    --ring: 42 40% 60%;
+    --radius: 0.125rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Typography utilities */
+.font-display {
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: -0.02em;
+}
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Carbon fiber texture */
+.carbon-texture {
+  background-color: #0a0a0a;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 4px);
+}
+
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  pointer-events: none;
+  opacity: 0.6;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+/* Thin gold line */
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a961 20%, #c9a961 80%, transparent);
+}
+
+/* Button interactions */
+.btn-gold {
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+}
+
+/* Link underline sweep */
+.link-sweep {
+  position: relative;
+  display: inline-block;
+}
+.link-sweep::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: #c9a961;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 400ms cubic-bezier(.7,.1,.2,1);
+}
+.link-sweep:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Fade in up entrance */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 900ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+/* Kinetic hero letter wiggle on hover */
+.kinetic-letter {
+  display: inline-block;
+  transition: transform 500ms cubic-bezier(.2,.7,.2,1), color 500ms ease;
+}
+.kinetic-letter:hover {
+  transform: translateY(-6px);
+  color: #c9a961;
+}
+
+/* Project image hover */
+.project-img {
+  transition: transform 900ms cubic-bezier(.2,.7,.2,1), filter 600ms ease;
+}
+.project-card:hover .project-img {
+  transform: scale(1.04);
+  filter: brightness(1.05) contrast(1.05);
+}
+
+/* Tachometer ring */
+.tacho-ring {
+  background: conic-gradient(from 225deg, #c9a961 0deg, #c9a961 270deg, #1f1f1f 270deg, #1f1f1f 360deg);
+  -webkit-mask: radial-gradient(circle, transparent 60%, black 61%);
+          mask: radial-gradient(circle, transparent 60%, black 61%);
+}
