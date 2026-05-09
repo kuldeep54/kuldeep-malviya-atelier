@@ -39,7 +39,9 @@ const Work = () => {
           {projects.map((p, idx) => (
             <a
               key={p.id}
-              href="#"
+              href={p.link}
+              target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={() => setHovered(p.id)}
               onMouseLeave={() => setHovered(null)}
               className={`project-card group block ${

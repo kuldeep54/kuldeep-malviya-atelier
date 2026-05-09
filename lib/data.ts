@@ -136,16 +136,15 @@ export const projects = [
   },
   {
     id: 4,
-    title: "Quizzer",
-    description: "Interactive quiz application with multiple categories, real-time scoring system, and engaging user interface.",
-    technologies: ["React", "CSS", "JavaScript", "Local Storage"],
-    github: "https://github.com/kuldeep54/Quizzer",
-    liveDemo: "https://quizzer-asnh75r9g-kuldeep-malviyas-projects-9da12c6e.vercel.app",
+    title: "TaskHive",
+    description: "A full-stack team productivity app built with the MERN stack. Manage projects, assign tasks, and track team performance with role-based access control.",
+    technologies: ["React 19", "Vite", "Tailwind CSS v4", "Node.js", "Express.js", "MongoDB", "JWT", "Axios"],
+    github: "https://github.com/kuldeep54/taskhive",
+    liveDemo: "https://taskhive-five.vercel.app",
     screenshots: [
-      "/screenshots/quizzer/home.png",
-      "/screenshots/quizzer/quiz.png"
+      "/screenshots/taskhive/home.png"
     ],
-    image: "/screenshots/quizzer/home.png",
+    image: "/screenshots/taskhive/home.png",
     featured: true
   }
 ];

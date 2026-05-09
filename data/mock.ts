@@ -18,6 +18,7 @@ export const profile = {
     { label: "GitHub", href: "https://github.com/kuldeep54" },
     { label: "Email", href: "mailto:malviyakuldeep54@gmail.com" },
   ],
+  resume: "https://drive.google.com/file/d/1OeyGQOuqEu464-xpYUW_YI_cUmT-3BYr/view?usp=drive_link",
 };
 
 export const stats = [
@@ -44,6 +45,8 @@ export const projects = [
     cover: "/sap_o2c_mockup.png",
     summary:
       "A full-stack analytics platform for exploring SAP Order-to-Cash data through a conversational AI interface and 3D knowledge graph.",
+    link: "https://ordertocash-frontend.onrender.com/",
+    github: "https://github.com/kuldeep54/OrderToCash",
   },
   {
     id: "p2",
@@ -54,6 +57,8 @@ export const projects = [
     cover: "/screenshots/anytalk/home.png",
     summary:
       "A real-time video meeting platform featuring live transcription and translation to break language barriers.",
+    link: "https://github.com/kuldeep54/BreakLanguageBarriers",
+    github: "https://github.com/kuldeep54/BreakLanguageBarriers",
   },
   {
     id: "p3",
@@ -64,16 +69,20 @@ export const projects = [
     cover: "/screenshots/googtogo/home.png",
     summary:
       "Modern e-commerce platform with comprehensive product catalog and user authentication systems.",
+    link: "https://kuldeep54.github.io/GoodToGo/",
+    github: "https://github.com/kuldeep54/GoodToGo",
   },
   {
     id: "p4",
-    title: "Quizzer App",
-    category: "Web Application",
-    year: "2024",
-    client: "EdTech Concept",
-    cover: "/screenshots/quizzer/home.png",
+    title: "TaskHive",
+    category: "Team Management",
+    year: "2026",
+    client: "Productivity Suite",
+    cover: "/screenshots/taskhive/home.png",
     summary:
-      "Interactive quiz application with multiple categories and a real-time scoring system.",
+      "A full-stack team productivity app built with the MERN stack. Manage projects, assign tasks, and track team performance with role-based access control.",
+    link: "https://taskhive-five.vercel.app",
+    github: "https://github.com/kuldeep54/taskhive",
   },
 ];
 
@@ -145,12 +154,13 @@ export const clients = [
   "SAP_O2C",
   "ANYTALK",
   "GOODTOGO",
-  "QUIZZER",
+  "TASKHIVE",
   "AWS",
 ];
 
 export const navigation = [
   { label: "Work", href: "#work" },
+  { label: "Research", href: "#research" },
   { label: "Profile", href: "#about" },
   { label: "Systems", href: "#services" },
   { label: "Process", href: "#process" },

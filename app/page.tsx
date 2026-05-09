@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import Stats from "../components/Stats";
 import Marquee from "../components/Marquee";
 import Work from "../components/Work";
+import Research from "../components/Research";
 import About from "../components/About";
 import Credentials from "../components/Credentials";
 import Services from "../components/Services";
@@ -22,6 +23,7 @@ export default function Portfolio() {
       <Stats />
       <Marquee />
       <Work />
+      <Research />
       <About />
       <Credentials />
       <Services />

@@ -51,7 +51,7 @@ const Header = () => {
             </a>
           ))}
           <a
-            href="/resume.pdf"
+            href={profile.resume}
             target="_blank"
             className="flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] text-[#c6c6c0] hover:text-[#c9a961] transition-colors"
           >

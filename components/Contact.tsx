@@ -24,10 +24,8 @@ const Contact = () => {
     setStatus("idle");
 
     try {
-      // Connects to your external backend (e.g., Render, Railway)
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
-      
-      const response = await fetch(`${backendUrl}/api/contact`, {
+      // Uses the internal Next.js API route
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

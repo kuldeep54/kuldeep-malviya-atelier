@@ -4,10 +4,10 @@ import React from "react";
 
 const Credentials = () => {
   const skills = {
-    frontend: ["React 19", "Next.js", "Tailwind CSS", "Three.js", "JavaScript"],
-    backend: ["Java", "Spring Boot", "Node.js", "Express.js", "Python"],
-    database: ["MongoDB", "SQL", "MongoDB Atlas"],
-    tools: ["GitHub", "Git", "Postman", "VS Code", "AWS AI-ML"]
+    frontend: ["React 19", "Next.js", "Tailwind CSS", "Three.js", "JavaScript", "HTML5", "CSS3"],
+    backend: ["Java", "Spring Boot", "Node.js", "Express.js", "Python", "Django", "FastAPI", "Flask", "JWT"],
+    database: ["MongoDB", "SQL", "MongoDB Atlas", "SQLite", "PostgreSQL"],
+    tools: ["GitHub", "Git", "Postman", "VS Code", "Vercel", "Render", "Socket.IO", "WebRTC", "AWS AI-ML"]
   };
 
   const education = [
