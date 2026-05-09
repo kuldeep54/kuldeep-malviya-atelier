@@ -27,7 +27,7 @@ const Work = () => {
             </h2>
           </div>
           <a
-            href="#contact"
+            href="#work"
             className="hidden md:inline-block font-mono text-[11px] tracking-[0.25em] text-[#c6c6c0] hover:text-[#c9a961] link-sweep"
           >
             FULL ARCHIVE →

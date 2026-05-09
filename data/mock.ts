@@ -18,7 +18,7 @@ export const profile = {
     { label: "GitHub", href: "https://github.com/kuldeep54" },
     { label: "Email", href: "mailto:malviyakuldeep54@gmail.com" },
   ],
-  resume: "https://drive.google.com/file/d/1OeyGQOuqEu464-xpYUW_YI_cUmT-3BYr/view?usp=drive_link",
+  resume: "/resume.pdf",
 };
 
 export const stats = [
